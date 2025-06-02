@@ -2,26 +2,70 @@
 
 @section('content')
 <!-- Hero Section - Updated with Image Background -->
-<section class="hero-section position-relative vh-100 d-flex align-items-center">
-    <div class="hero-image-overlay position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
-    <div class="hero-image position-absolute top-0 start-0 w-100 h-100">
-        <img src="images/hero.jpg" class="object-fit-cover w-100 h-100" alt="Luxury Hotel">
+<section class="modern-hero">
+    <!-- Parallax Background Layers -->
+    <div class="parallax-container">
+        <div class="parallax-layer background-layer" style="background-image: url('images/heroOne.jpg');"></div>
+        <div class="parallax-layer mid-layer" style="background-image: url('images/heroTwo.jpg');"></div>
+        <div class="parallax-layer foreground-layer" style="background-image: url('images/heroThree.jpg');"></div>
+        <div class="color-overlay"></div>
     </div>
-    <div class="container position-relative z-index-1 text-center text-white">
-        <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">Luxury Redefined</h1>
-        <p class="lead fs-4 mb-5 animate__animated animate__fadeIn animate__delay-1s">Where timeless elegance meets modern comfort</p>
-        <div class="d-flex justify-content-center gap-3">
-            <a href="{{ route('register') }}" class="btn btn-primary btn-lg px-4 py-3 rounded-pill animate__animated animate__fadeInUp animate__delay-1s">Book Now</a>
-            <a href="#explore" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill animate__animated animate__fadeInUp animate__delay-1s">Explore</a>
+
+    <!-- Hero Content with Animated Elements -->
+    <div class="hero-content-wrapper">
+        <div class="container">
+            <div class="hero-content">
+                <!-- Animated Badge -->
+                <div class="luxury-badge animate__animated animate__fadeIn">
+                    <span>5-Star Luxury</span>
+                    <svg width="40" height="10" viewBox="0 0 40 10">
+                        <path d="M0,5 L40,5" stroke="#c8a97e" stroke-width="2" stroke-dasharray="5,3"/>
+                    </svg>
+                </div>
+
+                <!-- Main Heading with Split Animation -->
+                <h1 class="hero-heading">
+                    <span class="line"><span class="word">Unparalleled</span></span>
+                    <span class="line"><span class="word">Hotel</span> <span class="word">Experience</span></span>
+                </h1>
+
+                <!-- Subtle Decorative Elements -->
+                <div class="hero-decoration">
+                    <div class="deco-line left"></div>
+                    <div class="deco-dot"></div>
+                    <div class="deco-line right"></div>
+                </div>
+
+                <!-- Location Indicator -->
+                <div class="location-indicator animate__animated animate__fadeIn animate__delay-1s">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                        <circle cx="6" cy="6" r="5" fill="none" stroke="#fff" stroke-width="1"/>
+                        <circle cx="6" cy="6" r="2" fill="#fff"/>
+                    </svg>
+                    <span>Mediterranean Coastline</span>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="scroll-indicator position-absolute bottom-0 start-50 translate-middle-x mb-4">
-        <div class="chevron"></div>
-        <div class="chevron"></div>
-        <div class="chevron"></div>
+
+    <!-- Scroll Indicator -->
+    <div class="modern-scroll-indicator">
+        <div class="scroll-text">Scroll</div>
+        <div class="scroll-line"></div>
+    </div>
+
+    <!-- Social Proof -->
+    <div class="social-proof">
+        <div class="proof-item">
+            <div class="proof-value">#1</div>
+            <div class="proof-label">In Hospitality</div>
+        </div>
+        <div class="proof-item">
+            <div class="proof-value">24/7</div>
+            <div class="proof-label">Concierge</div>
+        </div>
     </div>
 </section>
-
 <!-- Features Section - Enhanced -->
 <section id="explore" class="py-5 bg-light">
     <div class="container py-5">
@@ -37,8 +81,9 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow-sm hover-lift">
                     <div class="card-body text-center p-4">
-                        <div class="icon-wrapper bg-warning bg-opacity-10 text-warning rounded-circle mx-auto mb-4" style="width: 80px; height: 80px; line-height: 80px;">
-                            <i class="fas fa-wifi fa-2x"></i>
+                        <div class="icon-wrapper rounded-circle mx-auto mb-4 position-relative overflow-hidden d-flex align-items-center justify-content-center"
+                             style="width: 80px; height: 80px; background: url('images/wifi.jpg') center/cover no-repeat;">
+                            <!-- You can add content here that will be centered -->
                         </div>
                         <h3 class="h4 mb-3">Free High-Speed WiFi</h3>
                         <p class="text-muted mb-0">Stay connected with our complimentary high-speed internet access throughout the property.</p>
@@ -49,8 +94,9 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow-sm hover-lift">
                     <div class="card-body text-center p-4">
-                        <div class="icon-wrapper bg-warning bg-opacity-10 text-warning rounded-circle mx-auto mb-4" style="width: 80px; height: 80px; line-height: 80px;">
-                            <i class="fas fa-concierge-bell fa-2x"></i>
+                        <div class="icon-wrapper rounded-circle mx-auto mb-4 position-relative overflow-hidden d-flex align-items-center justify-content-center"
+                             style="width: 80px; height: 80px; background: url('images/concierge.jpg') center/cover no-repeat;">
+                            <!-- You can add content here that will be centered -->
                         </div>
                         <h3 class="h4 mb-3">24/7 Concierge</h3>
                         <p class="text-muted mb-0">Our dedicated concierge team is available around the clock to assist with all your needs.</p>
@@ -61,8 +107,9 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow-sm hover-lift">
                     <div class="card-body text-center p-4">
-                        <div class="icon-wrapper bg-warning bg-opacity-10 text-warning rounded-circle mx-auto mb-4" style="width: 80px; height: 80px; line-height: 80px;">
-                            <i class="fas fa-spa fa-2x"></i>
+                        <div class="icon-wrapper rounded-circle mx-auto mb-4 position-relative overflow-hidden d-flex align-items-center justify-content-center"
+                             style="width: 80px; height: 80px; background: url('images/spa.jpg') center/cover no-repeat;">
+                            <!-- You can add content here that will be centered -->
                         </div>
                         <h3 class="h4 mb-3">Luxury Spa</h3>
                         <p class="text-muted mb-0">Relax and rejuvenate at our full-service spa with expert therapists and premium treatments.</p>
@@ -73,8 +120,9 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow-sm hover-lift">
                     <div class="card-body text-center p-4">
-                        <div class="icon-wrapper bg-warning bg-opacity-10 text-warning rounded-circle mx-auto mb-4" style="width: 80px; height: 80px; line-height: 80px;">
-                            <i class="fas fa-umbrella-beach fa-2x"></i>
+                        <div class="icon-wrapper rounded-circle mx-auto mb-4 position-relative overflow-hidden d-flex align-items-center justify-content-center"
+                             style="width: 80px; height: 80px; background: url('images/hotelOne.jpg') center/cover no-repeat;">
+                            <!-- You can add content here that will be centered -->
                         </div>
                         <h3 class="h4 mb-3">Beach Access</h3>
                         <p class="text-muted mb-0">Private beach access with premium amenities and exclusive services for our guests.</p>
@@ -100,12 +148,11 @@
             <div class="col-md-4">
                 <div class="card border-0 shadow-sm h-100 overflow-hidden room-card">
                     <div class="position-relative overflow-hidden" style="height: 300px;">
-                        <img src="https://images.unsplash.com/photo-1566669437685-bc1c6dfc8f7f" class="object-fit-cover w-100 h-100" alt="Deluxe Room">
+                        <img src="images/hotelOne.jpg" class="object-fit-cover w-100 h-100" alt="Deluxe Room">
                         <div class="room-overlay d-flex align-items-end">
                             <div class="room-price bg-dark text-white p-3 w-100">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="fs-5">From $199/night</span>
-                                    <a href="#" class="btn btn-sm btn-warning">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -124,12 +171,11 @@
             <div class="col-md-4">
                 <div class="card border-0 shadow-sm h-100 overflow-hidden room-card">
                     <div class="position-relative overflow-hidden" style="height: 300px;">
-                        <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6" class="object-fit-cover w-100 h-100" alt="Executive Suite">
+                        <img src="images/hotelTwo.jpg" class="object-fit-cover w-100 h-100" alt="Executive Suite">
                         <div class="room-overlay d-flex align-items-end">
                             <div class="room-price bg-dark text-white p-3 w-100">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="fs-5">From $399/night</span>
-                                    <a href="#" class="btn btn-sm btn-warning">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -148,12 +194,11 @@
             <div class="col-md-4">
                 <div class="card border-0 shadow-sm h-100 overflow-hidden room-card">
                     <div class="position-relative overflow-hidden" style="height: 300px;">
-                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461" class="object-fit-cover w-100 h-100" alt="Presidential Suite">
+                        <img src="images/hotelThree.jpg" class="object-fit-cover w-100 h-100" alt="Presidential Suite">
                         <div class="room-overlay d-flex align-items-end">
                             <div class="room-price bg-dark text-white p-3 w-100">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="fs-5">From $699/night</span>
-                                    <a href="#" class="btn btn-sm btn-warning">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -308,54 +353,241 @@
 
 <!-- Custom Styles -->
 <style>
-    /* Updated Hero Section Styles */
-    .hero-section {
+    /* Modern Luxury Hero Styles */
+    .modern-hero {
         position: relative;
+        height: 100vh;
+        min-height: 800px;
+        overflow: hidden;
+        color: #fff;
+        display: flex;
+        align-items: center;
     }
 
-    .hero-image-overlay {
-        background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
-    }
-
-    .hero-image {
-        z-index: -1;
-    }
-
-    .hero-image img {
-        object-fit: cover;
+    /* Parallax Background Effect */
+    .parallax-container {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
     }
 
-    .scroll-indicator .chevron {
-        width: 20px;
-        height: 20px;
-        border-bottom: 2px solid white;
-        border-right: 2px solid white;
-        transform: rotate(45deg);
-        margin: -10px;
-        animation: scroll 2s infinite;
+    .parallax-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        will-change: transform;
     }
 
-    .scroll-indicator .chevron:nth-child(2) {
-        animation-delay: 0.2s;
+    .background-layer {
+        transform: translateZ(-2px) scale(3);
+        z-index: 1;
+        filter: blur(2px);
     }
 
-    .scroll-indicator .chevron:nth-child(3) {
-        animation-delay: 0.4s;
+    .mid-layer {
+        transform: translateZ(-1px) scale(2);
+        z-index: 2;
+        opacity: 0.8;
     }
 
-    @keyframes scroll {
-        0% {
-            opacity: 0;
-            transform: rotate(45deg) translate(-20px, -20px);
-        }
-        50% {
+    .foreground-layer {
+        z-index: 3;
+    }
+
+    .color-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(20,30,40,0.7) 0%, rgba(50,40,30,0.4) 100%);
+        z-index: 4;
+    }
+
+    /* Hero Content Styling */
+    .hero-content-wrapper {
+        position: relative;
+        z-index: 5;
+        width: 100%;
+    }
+
+    .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        text-align: center;
+    }
+
+    .luxury-badge {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #c8a97e;
+    }
+
+    /* Animated Heading */
+    .hero-heading {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: clamp(2.5rem, 7vw, 5.5rem);
+        line-height: 1.1;
+        margin: 0 auto 1.5rem;
+        max-width: 900px;
+    }
+
+    .hero-heading .line {
+        display: block;
+        overflow: hidden;
+    }
+
+    .hero-heading .word {
+        display: inline-block;
+        transform: translateY(100%);
+        opacity: 0;
+        animation: wordReveal 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    }
+
+    .hero-heading .line:nth-child(1) .word {
+        animation-delay: 0.3s;
+    }
+
+    .hero-heading .line:nth-child(2) .word:nth-child(1) {
+        animation-delay: 0.5s;
+    }
+
+    .hero-heading .line:nth-child(2) .word:nth-child(2) {
+        animation-delay: 0.7s;
+    }
+
+    @keyframes wordReveal {
+        to {
+            transform: translateY(0);
             opacity: 1;
         }
-        100% {
-            opacity: 0;
-            transform: rotate(45deg) translate(20px, 20px);
+    }
+
+    /* Decorative Elements */
+    .hero-decoration {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem auto;
+        max-width: 300px;
+    }
+
+    .deco-line {
+        height: 1px;
+        background: rgba(255,255,255,0.3);
+        flex-grow: 1;
+    }
+
+    .deco-dot {
+        width: 8px;
+        height: 8px;
+        background: #c8a97e;
+        border-radius: 50%;
+        margin: 0 1rem;
+    }
+
+    /* Location Indicator */
+    .location-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.8);
+    }
+
+    /* Modern Scroll Indicator */
+    .modern-scroll-indicator {
+        position: absolute;
+        left: 50%;
+        bottom: 2rem;
+        transform: translateX(-50%);
+        z-index: 6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .scroll-text {
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+        color: rgba(255,255,255,0.6);
+        animation: pulse 2s infinite;
+    }
+
+    .scroll-line {
+        width: 1px;
+        height: 50px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+    }
+
+    /* Social Proof */
+    .social-proof {
+        position: absolute;
+        right: 2rem;
+        bottom: 2rem;
+        z-index: 6;
+        display: flex;
+        gap: 2rem;
+    }
+
+    .proof-item {
+        text-align: right;
+    }
+
+    .proof-value {
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: #c8a97e;
+        line-height: 1;
+    }
+
+    .proof-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        opacity: 0.8;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .modern-hero {
+            min-height: 600px;
+        }
+
+        .hero-heading {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+        }
+
+        .social-proof {
+            right: 1rem;
+            bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .proof-value {
+            font-size: 1.2rem;
         }
     }
 
