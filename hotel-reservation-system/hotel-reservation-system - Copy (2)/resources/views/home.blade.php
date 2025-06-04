@@ -121,7 +121,7 @@
                 <div class="card h-100 border-0 shadow-sm hover-lift">
                     <div class="card-body text-center p-4">
                         <div class="icon-wrapper rounded-circle mx-auto mb-4 position-relative overflow-hidden d-flex align-items-center justify-content-center"
-                             style="width: 80px; height: 80px; background: url('images/hotelOne.jpg') center/cover no-repeat;">
+                             style="width: 80px; height: 80px; background: url('images/beach.jpg') center/cover no-repeat;">
                             <!-- You can add content here that will be centered -->
                         </div>
                         <h3 class="h4 mb-3">Beach Access</h3>
@@ -202,11 +202,11 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <h3 class="h4 mb-2">xxxxx</h3>
+                        <h3 class="h4 mb-2">Family Room</h3>
                         <div class="d-flex mb-3">
-                            <div class="me-3"><i class="fas fa-user-friends text-warning me-2"></i> xxxxx</div>
+                            <div class="me-3"><i class="fas fa-user-friends text-warning me-2"></i> 4 Guests</div>
                         </div>
-                        <p class="text-muted mb-0">The ultimate in luxury with panoramic views, private terrace, and personalized butler service.</p>
+                        <p class="text-muted mb-0">Comfortable and spacious, perfect for families with a queen bed, single bed, and cozy seating area.</p>
                     </div>
                 </div>
             </div>
