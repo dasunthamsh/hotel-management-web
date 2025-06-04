@@ -138,7 +138,7 @@
     <div class="container py-5">
         <div class="text-center mb-5">
             <span class="text-warning fw-bold mb-2 d-block">ACCOMMODATIONS</span>
-            <h2 class="display-5 fw-bold position-relative d-inline-block">Our Rooms & Suites
+            <h2 class="display-5 fw-bold position-relative d-inline-block">Our Rooms
                 <span class="position-absolute bottom-0 start-50 translate-middle-x bg-warning" style="height: 4px; width: 80px;"></span>
             </h2>
             <p class="lead text-muted mt-3 mx-auto" style="max-width: 700px;">Each space is meticulously designed to provide the ultimate in comfort and luxury</p>
@@ -158,10 +158,9 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <h3 class="h4 mb-2">Deluxe Room</h3>
+                        <h3 class="h4 mb-2">Single Room</h3>
                         <div class="d-flex mb-3">
-                            <div class="me-3"><i class="fas fa-user-friends text-warning me-2"></i> 2 Guests</div>
-                            <div><i class="fas fa-ruler-combined text-warning me-2"></i> 45 m²</div>
+                            <div class="me-3"><i class="fas fa-user-friends text-warning me-2"></i> 1 Guests</div>
                         </div>
                         <p class="text-muted mb-0">Spacious rooms with modern amenities, plush bedding, and stunning city or garden views.</p>
                     </div>
@@ -181,10 +180,9 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <h3 class="h4 mb-2">Executive Suite</h3>
+                        <h3 class="h4 mb-2">Double Room</h3>
                         <div class="d-flex mb-3">
-                            <div class="me-3"><i class="fas fa-user-friends text-warning me-2"></i> 4 Guests</div>
-                            <div><i class="fas fa-ruler-combined text-warning me-2"></i> 80 m²</div>
+                            <div class="me-3"><i class="fas fa-user-friends text-warning me-2"></i> 2 Guests</div>
                         </div>
                         <p class="text-muted mb-0">Luxurious suites with separate living areas, premium services, and panoramic city views.</p>
                     </div>
@@ -204,10 +202,9 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <h3 class="h4 mb-2">Presidential Suite</h3>
+                        <h3 class="h4 mb-2">xxxxx</h3>
                         <div class="d-flex mb-3">
-                            <div class="me-3"><i class="fas fa-user-friends text-warning me-2"></i> 6 Guests</div>
-                            <div><i class="fas fa-ruler-combined text-warning me-2"></i> 150 m²</div>
+                            <div class="me-3"><i class="fas fa-user-friends text-warning me-2"></i> xxxxx</div>
                         </div>
                         <p class="text-muted mb-0">The ultimate in luxury with panoramic views, private terrace, and personalized butler service.</p>
                     </div>
@@ -220,6 +217,134 @@
         </div>
     </div>
 </section>
+
+
+
+
+<!-- Residential Suites Section -->
+<section id="residential-suites" class="py-5 bg-white">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <span class="text-warning fw-bold mb-2 d-block">EXTENDED STAY</span>
+            <h2 class="display-5 fw-bold position-relative d-inline-block">Residential Suites
+                <span class="position-absolute bottom-0 start-50 translate-middle-x bg-warning" style="height: 4px; width: 80px;"></span>
+            </h2>
+            <p class="lead text-muted mt-3 mx-auto" style="max-width: 700px;">
+                Designed for those who desire the comforts of home with the luxury of hotel living
+            </p>
+        </div>
+
+        <div class="row align-items-center g-5 mb-5">
+            <div class="col-lg-6">
+                <div class="position-relative rounded-4 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a"
+                         class="img-fluid w-100"
+                         alt="Residential Suite Living Area"
+                         style="min-height: 400px; object-fit: cover;">
+                    <div class="position-absolute bottom-0 start-0 p-4 text-white">
+                        <h3 class="mb-0">Executive Residential Suite</h3>
+                        <p class="mb-0">From $4,500/month</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ps-lg-5">
+                    <h3 class="mb-4">Luxury Designed for Extended Stays</h3>
+                    <p class="lead text-muted mb-4">
+                        Our residential suites combine the space and functionality of an apartment with the premium services of a luxury hotel.
+                    </p>
+                    <ul class="list-unstyled row">
+                        <li class="col-md-6 mb-3 d-flex">
+                            <i class="fas fa-check-circle text-warning me-2 mt-1"></i>
+                            <span>Fully equipped gourmet kitchen</span>
+                        </li>
+                        <li class="col-md-6 mb-3 d-flex">
+                            <i class="fas fa-check-circle text-warning me-2 mt-1"></i>
+                            <span>Separate living and dining areas</span>
+                        </li>
+                        <li class="col-md-6 mb-3 d-flex">
+                            <i class="fas fa-check-circle text-warning me-2 mt-1"></i>
+                            <span>Weekly housekeeping included</span>
+                        </li>
+                        <li class="col-md-6 mb-3 d-flex">
+                            <i class="fas fa-check-circle text-warning me-2 mt-1"></i>
+                            <span>In-suite laundry facilities</span>
+                        </li>
+                        <li class="col-md-6 mb-3 d-flex">
+                            <i class="fas fa-check-circle text-warning me-2 mt-1"></i>
+                            <span>24/7 concierge service</span>
+                        </li>
+                        <li class="col-md-6 mb-3 d-flex">
+                            <i class="fas fa-check-circle text-warning me-2 mt-1"></i>
+                            <span>Access to all hotel amenities</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-outline-dark btn-lg mt-3 px-4 py-3">Explore Suite Options</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 hover-lift">
+                    <div class="card-img-top overflow-hidden" style="height: 250px;">
+                        <img src="https://images.unsplash.com/photo-1560448204-603b3fc33ddc"
+                             class="w-100 h-100 object-fit-cover"
+                             alt="One-Bedroom Suite">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="h4 mb-3">One-Bedroom Suite</h3>
+                        <p class="text-muted mb-4">Perfect for individuals or couples, featuring a spacious bedroom, living area, and kitchenette.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-dark">From $3,200/month</span>
+                            <a href="#" class="btn btn-sm btn-outline-dark">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 hover-lift">
+                    <div class="card-img-top overflow-hidden" style="height: 250px;">
+                        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92"
+                             class="w-100 h-100 object-fit-cover"
+                             alt="Two-Bedroom Suite">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="h4 mb-3">Two-Bedroom Suite</h3>
+                        <p class="text-muted mb-4">Ideal for families or colleagues, with two bedrooms, full kitchen, and dining area.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-dark">From $5,800/month</span>
+                            <a href="#" class="btn btn-sm btn-outline-dark">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 hover-lift">
+                    <div class="card-img-top overflow-hidden" style="height: 250px;">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7"
+                             class="w-100 h-100 object-fit-cover"
+                             alt="Penthouse Suite">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="h4 mb-3">Penthouse Residence</h3>
+                        <p class="text-muted mb-4">The ultimate in luxury living with panoramic views, private terrace, and premium services.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-dark">From $12,000/month</span>
+                            <a href="#" class="btn btn-sm btn-outline-dark">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
 
 <!-- Testimonials - Enhanced -->
 <section class="py-5 bg-dark text-white position-relative" style="background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1535827841776-24afc1e255ac'); background-size: cover; background-attachment: fixed;">
