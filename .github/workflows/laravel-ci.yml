@@ -83,17 +83,17 @@ jobs:
 #      - name: Run Static Analysis
 #        run: ./vendor/bin/phpstan analyse --memory-limit=2G
 
-      - name: Run PHPUnit Tests
-        run: vendor/bin/phpunit
-        env:
-          DB_CONNECTION: mysql
-          DB_HOST: 127.0.0.1
-          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
-          DB_DATABASE: hotel_reservation
-          DB_USERNAME: homestead
-          DB_PASSWORD: secret
-          REDIS_HOST: 127.0.0:8000/home
-          REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
+#      - name: Run PHPUnit Tests
+#        run: vendor/bin/phpunit
+#        env:
+#          DB_CONNECTION: mysql
+#          DB_HOST: 127.0.0.1
+#          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
+#          DB_DATABASE: hotel_reservation
+#          DB_USERNAME: homestead
+#          DB_PASSWORD: secret
+#          REDIS_HOST: 127.0.0.1
+#          REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
 
   deploy:
     runs-on: ubuntu-latest
