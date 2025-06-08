@@ -98,7 +98,7 @@
                              style="width: 80px; height: 80px; background: url('images/concierge.jpg') center/cover no-repeat;">
                             <!-- You can add content here that will be centered -->
                         </div>
-                        <h3 class="h4 mb-3">24/7 Concierge</h3>
+                        <h3 class="h4 mb-3">24/8 Concierge</h3>
                         <p class="text-muted mb-0">Our dedicated concierge team is available around the clock to assist with all your needs.</p>
                     </div>
                 </div>
