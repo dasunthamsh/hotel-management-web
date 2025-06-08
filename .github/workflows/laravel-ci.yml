@@ -1,77 +1,104 @@
-# GitHub Action for Laravel with MySQL and Redis
 name: API
+
 on: [push, pull_request]
+
 jobs:
   laravel:
     name: Laravel (PHP ${{ matrix.php-versions }})
     runs-on: ubuntu-latest
+
     services:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_ROOT_PASSWORD: 'secret'
-          MYSQL_DATABASE: ' hotel_reservation'
-          MYSQL_USER: 'homestead'
-          MYSQL_PASSWORD: 'secret'
+          MYSQL_ROOT_PASSWORD: secret
+          MYSQL_DATABASE: hotel_reservation
+          MYSQL_USER: homestead
+          MYSQL_PASSWORD: secret
         ports:
-          - 3306/tcp
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
       redis:
         image: redis
         ports:
-          - 6379/tcp
-        options: --health-cmd="redis-cli ping" --health-interval=10s --health-timeout=5s --health-retries=3
+          - 6379:6379
+        options: >-
+          --health-cmd="redis-cli ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['8.4']
+        php-versions: ['8.2'] # You can adjust PHP version if needed
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup PHP, with composer and extensions
-        uses: dasunthamsh/hotel-management-web.git #https://github.com/shivammathur/setup-php
+        uses: actions/checkout@v3
+
+      - name: Setup PHP, Composer and extensions
+        uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-          extensions: mbstring, dom, fileinfo, mysql
-          coverage: xdebug #optional
-      - name: Start mysql service
-        run: sudo /etc/init.d/mysql start
-      - name: Get composer cache directory
-        id: composercache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - name: Cache composer dependencies
-        uses: actions/cache@v2
+          extensions: mbstring, dom, fileinfo, pdo_mysql, redis
+          coverage: xdebug
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
         with:
-          path: ${{ steps.composercache.outputs.dir }}
-          # Use composer.json for key, if composer.lock is not committed.
-          # key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+          path: ~/.composer/cache
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
+
       - name: Install Composer dependencies
         run: composer install --no-progress --prefer-dist --optimize-autoloader
-      - name: Copy Env File
+
+      - name: Copy Environment file
         run: cp .env.testing .env
-      - name: Migrate Test Database
+
+      - name: Generate application key
+        run: php artisan key:generate
+
+      - name: Set directory permissions
+        run: chmod -R 777 storage bootstrap/cache
+
+      - name: Migrate and seed database
         run: php artisan migrate --env=testing --seed --force
         env:
+          DB_CONNECTION: mysql
+          DB_HOST: 127.0.0.1
           DB_PORT: ${{ job.services.mysql.ports['3306'] }}
+          DB_DATABASE: hotel_reservation
+          DB_USERNAME: homestead
+          DB_PASSWORD: secret
+          REDIS_HOST: 127.0.0.1
           REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
-      - name: Change Directory Permissions
-        run: chmod -R 777 storage bootstrap/cache
-      - name: Static Analysis via PHPStan
+
+      - name: Run Static Analysis
         run: ./vendor/bin/phpstan analyse --memory-limit=2G
-      - name: Execute tests (Unit and Feature tests) via PHPUnit
+
+      - name: Run PHPUnit Tests
         run: vendor/bin/phpunit
         env:
+          DB_CONNECTION: mysql
+          DB_HOST: 127.0.0.1
           DB_PORT: ${{ job.services.mysql.ports['3306'] }}
+          DB_DATABASE: hotel_reservation
+          DB_USERNAME: homestead
+          DB_PASSWORD: secret
+          REDIS_HOST: 127.0.0.1
           REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
-  # This piece is optional (continuous deployment).
+
   deploy:
     runs-on: ubuntu-latest
     needs: laravel
-    # This will deploy your code to your server if it is merged into master.
-    # You can change the branch to a common name like develop or staging.
     if: github.ref == 'refs/heads/master'
     steps:
-      - name: Send to Ploi # You can set this up with Forge, AWS, Vapor, Vercel etc.
-        run: curl --location --request POST ${{ secrets.PLOI_DEV_URI }} # Add a secret to your repo
+      - name: Deploy via Ploi or other provider
+        run: curl --location --request POST ${{ secrets.PLOI_DEV_URI }}
