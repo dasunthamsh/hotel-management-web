@@ -92,7 +92,7 @@ jobs:
           DB_DATABASE: hotel_reservation
           DB_USERNAME: homestead
           DB_PASSWORD: secret
-          REDIS_HOST: 127.0.0.1
+          REDIS_HOST: 127.0.0:8000/home
           REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
 
   deploy:
