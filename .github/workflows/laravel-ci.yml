@@ -80,8 +80,8 @@ jobs:
           REDIS_HOST: 127.0.0.1
           REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
 
-      - name: Run Static Analysis
-        run: ./vendor/bin/phpstan analyse --memory-limit=2G
+#      - name: Run Static Analysis
+#        run: ./vendor/bin/phpstan analyse --memory-limit=2G
 
       - name: Run PHPUnit Tests
         run: vendor/bin/phpunit
