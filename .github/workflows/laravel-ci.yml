@@ -97,7 +97,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: laravel
+#    needs: laravel
     if: github.ref == 'refs/heads/master'
     steps:
       - name: Deploy via Ploi or other provider
