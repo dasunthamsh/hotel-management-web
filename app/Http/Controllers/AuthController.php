@@ -111,7 +111,7 @@ class AuthController extends Controller
             // Role-based redirection
             return match ($user->role) {
                 'admin' => redirect()->route('admin.dashboard'),
-                'customer' => redirect()->route('customer.dashboard'),
+                'customer' => redirect()->route('customer.reservations'),
                 'clerk' => redirect()->route('clerk.dashboard', ['branch_id' => $user->branch_id]),
                 'manager' => redirect()->route('manager.dashboard', ['branch_id' => $user->branch_id]),
                 default => redirect()->route('dashboard'),
