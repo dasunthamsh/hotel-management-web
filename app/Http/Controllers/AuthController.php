@@ -20,9 +20,27 @@ class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest')->except(['logout', 'selectBranch', 'viewBranchData', 'verifyTwoFactor']);
-        $this->middleware('auth')->only(['selectBranch', 'viewBranchData', 'logout']);
-        $this->middleware('role:admin')->only(['selectBranch', 'viewBranchData']);
+        $this->middleware('guest')->except([
+            'logout', 
+            'selectBranch', 
+            'viewBranchData', 
+            'verifyTwoFactor',
+            'showStaffRegisterForm', // Allow authenticated admins
+            'registerStaff'
+        ]);
+        $this->middleware('auth')->only([
+            'selectBranch', 
+            'viewBranchData', 
+            'logout', 
+            'showStaffRegisterForm', // Require auth for staff registration
+            'registerStaff'
+        ]);
+        $this->middleware('role:admin')->only([
+            'selectBranch', 
+            'viewBranchData', 
+            'showStaffRegisterForm', 
+            'registerStaff'
+        ]);
     }
 
     public function showLoginForm()
@@ -83,15 +101,15 @@ class AuthController extends Controller
                 $request->session()->forget('admin_selected_branch');
             }
 
-            // Generate 2FA code if enabled for user (assuming a 2fa_enabled column)
+            // Generate 2FA code if enabled for user
             if ($user->two_factor_enabled) {
-                $code = Str::random(6); // Simple 6-character code
+                $code = Str::random(6);
                 $user->two_factor_code = Hash::make($code);
                 $user->two_factor_expires_at = Carbon::now()->addMinutes(10);
                 $user->save();
 
                 Mail::to($user->email)->send(new TwoFactorCode($code));
-                Auth::logout(); // Logout until 2FA is verified
+                Auth::logout();
                 $request->session()->put('2fa_user_id', $user->id);
 
                 return redirect()->route('2fa.verify');
@@ -166,7 +184,7 @@ class AuthController extends Controller
 
             return match ($user->role) {
                 'admin' => redirect()->route('admin.dashboard'),
-                'customer' => redirect()->route('customer.dashboard'),
+                'customer' => redirect()->route('dashboard'),
                 'clerk' => redirect()->route('clerk.dashboard', ['branch_id' => $user->branch_id]),
                 'manager' => redirect()->route('manager.dashboard', ['branch_id' => $user->branch_id]),
                 default => redirect()->route('dashboard'),
@@ -213,7 +231,7 @@ class AuthController extends Controller
 
             Auth::login($user);
 
-            return redirect()->route('customer.dashboard')->with('success', 'Registration successful! A confirmation email has been sent.');
+            return redirect()->route('customer.reservations')->with('success', 'Registration successful! A confirmation email has been sent.');
         } catch (\Illuminate\Validation\ValidationException $e) {
             Log::warning('Customer Registration Validation Failed', [
                 'errors' => $e->errors(),
