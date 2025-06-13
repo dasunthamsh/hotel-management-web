@@ -42,9 +42,13 @@
                 <div class="card-body">
                     <h3 class="h4 mb-3">Staff Management</h3>
                     <p class="text-muted">Register new clerks and managers to the system.</p>
-                    <a href="{{ route('admin.staff.register') }}" class="btn btn-primary">Register Staff</a>
+                    <form action="{{ route('admin.staff.register') }}" method="GET">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Register Staff</button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 </div>
 @endsection
